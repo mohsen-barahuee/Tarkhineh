@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Estedad-Bold";
+    src: url(../../public/fonts/Estedad-Bold.ttf);
+  }
+  @font-face {
+    font-family: "Estedad-Medium";
+    src: url(../../public/fonts/Estedad-Medium.ttf);
+  }
+  @font-face {
+    font-family: "Estedad-Regular";
+    src: url(../../public/fonts/Estedad-Regular.ttf);
+  }
+  @font-face {
+    font-family: "Estedad-SemiBold";
+    src: url(../../public/fonts/Estedad-SemiBold.ttf);
+  }
+}
+
+@layer utilities {
+  .Drop-Down > ul {
+    transition: all 75ms linear;
+    z-index: -20;
+    opacity: 0;
+  }
+
+  .Drop-Down:hover > ul {
+    z-index: 20;
+    opacity: 100;
+  }
+}
