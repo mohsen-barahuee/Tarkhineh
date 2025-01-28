@@ -55,7 +55,7 @@ export default function Navbar({ onShowModal, setSearchModal, token }) {
                 <Link href={"/"}>اعطای نمایندگی</Link>
               </li>
               <li className=" hover:text-Primary">
-                <Link href={"/about"}>درباره ما</Link>
+                <Link href={"/aboutus"}>درباره ما</Link>
               </li>
               <li className=" hover:text-Primary">تماس با ما</li>
             </ul>
