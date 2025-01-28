@@ -1,9 +1,12 @@
 import React from 'react'
+import Header from './components/templates/Header'
+import ResturantMenu from './components/templates/ResturantMenu'
 
 export default function Home() {
   return (
-    <div>
-      <h1>home Page</h1>
-    </div>
+    <>
+      <Header />
+      <ResturantMenu />
+    </>
   )
 }
