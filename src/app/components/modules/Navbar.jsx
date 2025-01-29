@@ -3,9 +3,21 @@ import React, { useState } from "react";
 import Accordion from "./Accordion";
 import Dropdown from "./Dropdown";
 import Link from "next/link";
+import Login from "./Login";
+import Search from "./Search";
 
-export default function Navbar({ onShowModal, setSearchModal, token }) {
+export default function Navbar({ token }) {
   const [slider, setSlider] = useState(false);
+  const [serachModal, setSearchModal] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
+
+  const showLoginModal = () => {
+    setLoginModal(true);
+  };
+
+  const closeLoginModal = () => {
+    setLoginModal(false);
+  };
 
   const sliderShowHandler = () => {
     setSlider(true);
@@ -16,6 +28,8 @@ export default function Navbar({ onShowModal, setSearchModal, token }) {
   };
   return (
     <>
+      {loginModal && <Login onCloseModal={closeLoginModal} />}
+      {serachModal && <Search setModal={setSearchModal} />}
       <div className={`container    px-6 py-4 lg:px-26.5 md:py-8`}>
         <div className="flex items-center justify-between md:justify-center md:gap-x-4 lg:gap-x-0 lg:justify-between">
           <div
@@ -62,7 +76,7 @@ export default function Navbar({ onShowModal, setSearchModal, token }) {
           </div>
           <div className="flex flex-row-reverse md:flex-row gap-x-2 child:bg-Tint-1 child:p-1 md:child:p-2 child:cursor-pointer child:rounded">
             {token ? (
-              <div onClick={() => alert(`Hello User ${token}`)}>
+              <div>
                 <Dropdown
                   imgSrc={"./svg/user.svg"}
                   items={[
@@ -75,7 +89,7 @@ export default function Navbar({ onShowModal, setSearchModal, token }) {
                 />
               </div>
             ) : (
-              <div onClick={onShowModal}>
+              <div onClick={showLoginModal}>
                 <img className="w-4 h-4 md:w-6 md:h-6" src={"./svg/user.svg"} />
               </div>
             )}
@@ -138,6 +152,11 @@ export default function Navbar({ onShowModal, setSearchModal, token }) {
           </div>
         </div>
       </div>
+      {loginModal || serachModal ? (
+        <div className=" fixed top-0 bg-black/70 w-full h-[100vh]"></div>
+      ) : (
+        ""
+      )}
     </>
   );
 }

@@ -1,6 +1,17 @@
 import React from "react";
 
 export default function Dropdown({ title, items, imgSrc }) {
+  const logOutHandler = async () => {
+    const response = await fetch("/api/auth/logout", {
+      method: "POST",
+    });
+
+    if (response.status === 200) {
+      alert("LogOut Successfull");
+      window.location.reload();
+    }
+  };
+
   return (
     <div className=" relative Drop-Down">
       {title && (
@@ -21,7 +32,14 @@ export default function Dropdown({ title, items, imgSrc }) {
 
       <ul className="  absolute top-10 w-36 child:text-Body-SM text-neutral-800  child:pr-2 child:py-2.5 child:border-b child:border-b-neutral-200 child-hover:text-Primary   shadow-DropShadow-12 bg-white">
         {items.map((item, index) => {
-          return <li key={index}>{item}</li>;
+          return (
+            <li
+              onClick={item == "خروج از حساب" ? logOutHandler : () => {}}
+              key={index}
+            >
+              {item}
+            </li>
+          );
         })}
       </ul>
     </div>

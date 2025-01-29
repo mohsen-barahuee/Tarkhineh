@@ -6,14 +6,14 @@ export default function Login({ onCloseModal }) {
 
   const [seconds, SetSeconds] = useState(59);
   const [minutes, setMinutes] = useState(1);
-  const [phonNumber, setPhoneNumber] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
   const [buttonEnable, setButtonEnable] = useState(false);
   const [sendCod, setSendCode] = useState(false);
   const [code, setCode] = useState();
 
-  const phonNumberHandler = (event) => {
+  const phoneNumberHandler = (event) => {
     setPhoneNumber(event.target.value);
-    if (phonNumber >= 1) {
+    if (phoneNumber >= 1) {
       setButtonEnable(true);
     }
   };
@@ -23,7 +23,7 @@ export default function Login({ onCloseModal }) {
   };
 
   const sendCodHandler = () => {
-    if (phonNumber.length < 11) {
+    if (phoneNumber.length < 11) {
       alert("Phone Is Not Valid");
       return false;
     }
@@ -53,13 +53,14 @@ export default function Login({ onCloseModal }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ phonNumber, code }),
+      body: JSON.stringify({ phoneNumber, code }),
     });
 
-    if (response.status === 201) {
+    if (response.status === 200) {
       onCloseModal();
       router.replace("/");
       alert("User Created successfully");
+      window.location.reload();
     }
   };
 
@@ -87,7 +88,7 @@ export default function Login({ onCloseModal }) {
       </h4>
       <p className="text-Caption-MD font-Regular text-neutral-600 text-center mt-6 md:mt-1">
         {sendCod
-          ? `کد تایید پنج‌رقمی به شماره ${phonNumber} ارسال شد.`
+          ? `کد تایید پنج‌رقمی به شماره ${phoneNumber} ارسال شد.`
           : " با وارد کردن شماره موبایل کد تاییدی برای شما ارسال خواهد شد."}
       </p>
 
@@ -109,10 +110,10 @@ export default function Login({ onCloseModal }) {
             شماره همراه
           </label>
           <input
-            onChange={phonNumberHandler}
+            onChange={phoneNumberHandler}
             type="text"
             className="w-full rounded-lg border border-black h-10 outline-none text-left px-3 text-Body-MD font-Regular"
-            value={phonNumber}
+            value={phoneNumber}
           />
         </div>
       )}

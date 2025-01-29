@@ -26,11 +26,9 @@ export default function Accordion({ title, svgSrc, items }) {
         <ul className=" w-full  flex-col  items-start child:text-Caption-MD child:font-Regular  py-1 pr-5">
           {items.map((item, index) => {
             return (
-              <>
-                <li key={index} className="my-3">
-                  {item}
-                </li>
-              </>
+              <li key={index} className="my-3">
+                {item}
+              </li>
             );
           })}
         </ul>

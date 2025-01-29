@@ -1,51 +1,43 @@
 import connectToDB from "../../../../../utils/db"
+import { NextResponse } from "next/server"
 import UserModel from "../../../../../models/user"
+import { serialize } from "cookie"
 import { generateToken } from "../../../../../utils/auth"
 
 
-export async function POST(req, res) {
+
+export async function POST(req) {
 
     // Function for connecting to database
-    await connectToDB()
-
+    connectToDB()
     const acceptCode = 1380
     // GETING BODY INFORMATION
-    const { phonNumber, code } = req.body
+    const body = await req.json()
 
-    // Checking User is Exist
-    const isUserExist = await UserModel.findOne({ phonNumber })
+    const { phoneNumber, code } = body
+
+    const isUserExist = await UserModel.findOne({ phoneNumber })
 
     if (isUserExist) {
+        return Response.json({ message: "This Phone Number Is Owned" })
+    }
+    else {
 
-        return Response.json({ message: "User is Exist" })
-
-    } else {
         // Sending Data For Creating Data In Data Base
-        const users = await UserModel.create({ phonNumber })
-
+        const user = await UserModel.create({ phoneNumber, code })
         //make token for user 
-        const token = generateToken({ phonNumber })
+        const token = generateToken({ phoneNumber })
+        const response = NextResponse.json({ message: 'User Created successful', token });
+        response.headers.append("Set-Cookie", serialize("token", token, {
+            httpOnly: true,
+            maxAge: 60 * 60 * 24,
+            sameSite: 'strict',
+            path: "/"
+        }))
 
-        if (users && code == acceptCode) {
-            return Response.setHeader(
-                "Set-Cookie",
-                serialize("token", token, {
-                    httpOnly: true,
-                    path: "/",
-                    maxAge: 60 * 60 * 24,
-                })
-            ).status(201).json({ message: "User Created Successfully", token })
-        } else {
-            return Response.status(409).json({ message: "Uknow Error" })
+        return response
 
-        }
 
     }
 
-
-
-    // console.log("Phone Num : " + phoneNumber, "\ncode : " + code);
-
-
-    // return res.status(201).json({ message: "POST" })
 }
