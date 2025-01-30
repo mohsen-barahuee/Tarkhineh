@@ -15,7 +15,7 @@ export default function Accordion({ title, svgSrc, items }) {
           <h2 className="text-Caption-MD font-Regular">{title} </h2>
         </div>
         <div>
-          <img src="./svg/arrow-down.svg" />
+          <img src="/svg/arrow-down.svg" />
         </div>
       </div>
       <div

@@ -73,14 +73,10 @@ export default function Login({ onCloseModal }) {
           onClick={onCloseModal}
           className=" absolute left-0  top-6 cursor-pointer"
         >
-          <img src="./svg/Close-icon-modal.svg" className="text-black" />
+          <img src="/svg/Close-icon-modal.svg" className="text-black" />
         </div>
         <div className="flex justify-center w-full pt-[100px] md:pt-6">
-          <img
-            className="w-[148px] md:w-[102px]"
-            src="./images/Logo.png"
-            alt=""
-          />
+          <img className="w-[148px] md:w-[102px]" src="/images/Logo.png" />
         </div>
       </div>
       <h4 className=" mt-20 md:mt-4 text-center font-Regular text-Body-MD">

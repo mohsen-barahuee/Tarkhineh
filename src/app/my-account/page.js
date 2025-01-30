@@ -8,6 +8,6 @@ export default function myAccount() {
 
 
     return (
-        <div>Home Page</div>
+        <div>MY ACCOUNT</div>
     )
 }

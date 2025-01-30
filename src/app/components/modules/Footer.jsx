@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <>
       <div className="w-full h-[200px] md:h-full  relative">
-        <img src="./images/Footer.png" className="w-full h-full" />
+        <img src="/images/Footer.png" className="w-full h-full" />
         <div className=" flex justify-start md:justify-between gap-x-20 md:gap-x-0 w-full absolute top-4 pr-5 md:top-8 md:px-26.5 text-white">
           <div className="flex flex-col gap-y-1 md:gap-y-4">
             <h5 className="text-H7 md:text-H5 font-Bold">دسترسی آسان</h5>
@@ -14,9 +14,9 @@ export default function Footer() {
               <p>حریم خصوصی</p>
             </div>
             <div className="flex mt-1 gap-x-4 flex-row-reverse justify-end md:pr-3 child:w-4 md:child:w-auto">
-              <img src="./svg/Telegram.svg" />
-              <img src="./svg/Instagram.svg" />
-              <img src="./svg/Twitter.svg" />
+              <img src="/svg/Telegram.svg" />
+              <img src="/svg/Instagram.svg" />
+              <img src="/svg/Twitter.svg" />
             </div>
           </div>
           <div className="flex flex-col gap-y-4">

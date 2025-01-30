@@ -12,7 +12,7 @@ export default function Search({ setModal }) {
             onClick={() => setModal(false)}
             className=" absolute left-6 top-6 cursor-pointer"
           >
-            <img src="./svg/Close-icon-modal.svg" className="w-10" />
+            <img src="/svg/Close-icon-modal.svg" className="w-10" />
           </div>
           <h2 className="text-H7 text-center font-SemiBold">جستوجو</h2>
         </div>

@@ -43,7 +43,7 @@ export default function Navbar({ token }) {
           <div>
             <Link href={"/"}>
               <img
-                src={"./images/Logo.png"}
+                src={"/images/Logo.png"}
                 className="w-[102px] md:w-[130px] lg:w-[155px]"
               />
             </Link>
@@ -80,7 +80,7 @@ export default function Navbar({ token }) {
             {token ? (
               <div className={token ? "bg-Tint-2" : "bg-Tint-1"}>
                 <Dropdown
-                  imgSrc={"./svg/user.svg"}
+                  imgSrc={"/svg/user.svg"}
                   items={[
                     "پروفایل",
                     "پیگیری سفارش",
@@ -98,14 +98,14 @@ export default function Navbar({ token }) {
             <div>
               <img
                 className="w-4 h-4 md:w-6 md:h-6"
-                src={"./svg/shopping-cart.svg"}
+                src={"/svg/shopping-cart.svg"}
               />
             </div>
             <div
               onClick={() => setSearchModal(true)}
               className="hidden md:inline-block "
             >
-              <img src={"./svg/search-normal.svg"} width="24" height="24" />
+              <img src={"/svg/search-normal.svg"} width="24" height="24" />
             </div>
           </div>
         </div>
@@ -120,36 +120,36 @@ export default function Navbar({ token }) {
         }`}
       >
         <div className="w-full relative">
-          <img src="./images/navbar/topFrame.png" />
+          <img src="/images/navbar/topFrame.png" />
           <img
             onClick={sliderCloseHanlder}
             className=" absolute top-4 left-4"
-            src="./svg/Close-icon.svg"
+            src="/svg/Close-icon.svg"
           />
         </div>
         <div className="mt-1 px-4 child:py-2 child:border-b child:border-neutral-300   child:gap-x-1">
           <div className="flex">
-            <img src="./svg/home.svg" />
+            <img src="/svg/home.svg" />
             <h2 className="text-Caption-MD font-Regular">صفحه اصلی</h2>
           </div>
           <Accordion
             title={"منو"}
-            svgSrc={"./svg/home.svg"}
+            svgSrc={"/svg/home.svg"}
             items={["غذای اصلی", "پیش غذا", "دسر", "نوشیدنی"]}
           />
 
           <Accordion
             title={"شعبه"}
-            svgSrc={"./svg/home.svg"}
+            svgSrc={"/svg/home.svg"}
             items={["اکباتان", "چالوس ", "اقدسیه ", "ونک"]}
           />
 
           <Link href={"/about"} className="flex">
-            <img src="./svg/home.svg" />
+            <img src="/svg/home.svg" />
             <h2 className="text-Caption-MD font-Regular">درباره ما </h2>
           </Link>
           <div className="flex">
-            <img src="./svg/home.svg" />
+            <img src="/svg/home.svg" />
             <h2 className="text-Caption-MD font-Regular"> تماس با ما</h2>
           </div>
         </div>
