@@ -1,4 +1,4 @@
-import { hashوcompare } from "bcryptjs";
+import { hash, compare } from "bcryptjs";
 import { sign, verify } from "jsonwebtoken";
 
 // hash Password
