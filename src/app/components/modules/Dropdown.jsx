@@ -28,7 +28,7 @@ export default function Dropdown({ title, items, imgSrc }) {
           </svg>
         </div>
       )}
-      {imgSrc && <img className="w-4 h-4 md:w-6 md:h-6" src={imgSrc} />}
+      {imgSrc && <img className="w-4 h-4 md:w-6 md:h-6 " src={imgSrc} />}
 
       <ul className="  absolute top-10 w-36 child:text-Body-SM text-neutral-800  child:pr-2 child:py-2.5 child:border-b child:border-b-neutral-200 child-hover:text-Primary   shadow-DropShadow-12 bg-white">
         {items.map((item, index) => {

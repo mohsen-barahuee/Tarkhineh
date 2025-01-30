@@ -74,9 +74,11 @@ export default function Navbar({ token }) {
               <li className=" hover:text-Primary">تماس با ما</li>
             </ul>
           </div>
-          <div className="flex flex-row-reverse md:flex-row gap-x-2 child:bg-Tint-1 child:p-1 md:child:p-2 child:cursor-pointer child:rounded">
+          <div
+            className={`flex flex-row-reverse md:flex-row gap-x-2 child:bg-Tint-1 child:text-Primary child:p-1 md:child:p-2 child:cursor-pointer child:rounded`}
+          >
             {token ? (
-              <div>
+              <div className={token ? "bg-Tint-2" : "bg-Tint-1"}>
                 <Dropdown
                   imgSrc={"./svg/user.svg"}
                   items={[
@@ -90,7 +92,7 @@ export default function Navbar({ token }) {
               </div>
             ) : (
               <div onClick={showLoginModal}>
-                <img className="w-4 h-4 md:w-6 md:h-6" src={"./svg/user.svg"} />
+                <h3 className="text-Button-SM font-Medium">ورود | ثبت نام</h3>
               </div>
             )}
             <div>
@@ -101,7 +103,7 @@ export default function Navbar({ token }) {
             </div>
             <div
               onClick={() => setSearchModal(true)}
-              className="hidden md:inline-block"
+              className="hidden md:inline-block "
             >
               <img src={"./svg/search-normal.svg"} width="24" height="24" />
             </div>

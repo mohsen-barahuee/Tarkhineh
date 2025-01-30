@@ -32,4 +32,8 @@
     z-index: 20;
     opacity: 100;
   }
+
+  svg {
+    fill: currentColor;
+  }
 }

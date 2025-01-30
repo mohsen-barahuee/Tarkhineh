@@ -20,7 +20,7 @@ export default function AboutSection() {
             </p>
             <Link
               className=" flex justify-center items-center gap-x-2 absolute left-0  rounded border-2 border-white  py-1.5 px-7 text-Caption-MD md:text-Button-LG font-Medium mt-2 md:mt-4"
-              href={"/about"}
+              href={"/aboutus"}
             >
               اطلاعات بیشتر
               <img src="./svg/LeftArrow.svg" className="w-4 md:w-6" alt="" />
