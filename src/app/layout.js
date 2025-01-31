@@ -4,10 +4,11 @@ import Navbar from "@/components/modules/Navbar";
 import Footer from "@/components/modules/Footer";
 
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
 
   const cookie = cookies();
-  const token = cookie.has("token");
+  const token = await cookie.has("token");
+
 
   return (
     <html lang="en" dir="rtl">

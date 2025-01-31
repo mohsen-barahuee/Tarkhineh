@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function myAccount() {
+export default async function myAccount() {
 
 
 

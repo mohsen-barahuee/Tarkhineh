@@ -1,13 +1,36 @@
-import React from "react";
+"use client";
+import React, { use, useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function AccountSidebar() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const getUserData = async () => {
+      const response = await fetch("/api/user");
+      const data = await response.json();
+      setUser(data.userAccount);
+    };
+    getUserData();
+  }, []);
+
   const sideBarValues = [
     { id: 1, title: "پروفایل", href: "/my-account" },
     { id: 2, title: "پیگیری سفارشات", href: "/my-account/my-orders" },
     { id: 3, title: "علاقمندی‌ها", href: "/my-account/favorite" },
     { id: 4, title: "آدرس‌های من", href: "/my-account/myaddress" },
   ];
+
+  const logOutHandler = async () => {
+    const response = await fetch("/api/auth/logout", {
+      method: "POST",
+    });
+
+    if (response.status == 200) {
+      alert("LogOut Successfull");
+      window.location.reload();
+    }
+  };
 
   return (
     <>
@@ -23,7 +46,7 @@ export default function AccountSidebar() {
                 کاربر ترخینه
               </h2>
               <p className="text-Caption-MD font-Regular text-neutral-600">
-                0934512521
+                {user ? "0" + user.phoneNumber : "Loading..."}
               </p>
             </div>
           </div>
@@ -41,7 +64,10 @@ export default function AccountSidebar() {
                 </div>
               );
             })}
-            <button className="text-right p-2 text-Body-MD font-Regular text-Error hover:text-Error-Light">
+            <button
+              onClick={logOutHandler}
+              className="text-right p-2 text-Body-MD font-Regular text-Error hover:text-Error-Light"
+            >
               خروج
             </button>
           </div>

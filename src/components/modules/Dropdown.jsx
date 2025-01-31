@@ -1,6 +1,9 @@
 import React from "react";
+import { useRouter } from "next/navigation";
 
 export default function Dropdown({ title, items, imgSrc }) {
+  const router = useRouter();
+
   const logOutHandler = async () => {
     const response = await fetch("/api/auth/logout", {
       method: "POST",
@@ -8,6 +11,7 @@ export default function Dropdown({ title, items, imgSrc }) {
 
     if (response.status === 200) {
       alert("LogOut Successfull");
+      router.replace("/");
       window.location.reload();
     }
   };
