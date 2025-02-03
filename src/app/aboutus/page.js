@@ -1,5 +1,6 @@
 import React from 'react'
-import About from '../components/templates/About'
+import About from '@/components/templates/About'
+
 
 export default function AboutUs() {
     return (
@@ -8,3 +9,4 @@ export default function AboutUs() {
         </>
     )
 }
+
