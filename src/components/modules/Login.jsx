@@ -22,13 +22,24 @@ export default function Login({ onCloseModal }) {
     setCode(event.target.value);
   };
 
-  const sendCodHandler = () => {
-    if (phoneNumber.length < 11) {
-      alert("Phone Is Not Valid");
-      return false;
+  const sendCodHandler = async () => {
+    const response = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({phoneNumber:Number(phoneNumber)  }),
+    });
+
+    if(response.status === 200){
+      alert("Login Successfull")
+      router.replace("/")
+      window.location.reload()
+    }else  {
+
+      setSendCode(true);
     }
 
-    setSendCode(true);
   };
 
   useEffect(() => {

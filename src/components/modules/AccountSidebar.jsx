@@ -1,18 +1,30 @@
 "use client";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
-export default function AccountSidebar() {
+export default function AccountSidebar({ userToken }) {
+
+  const router = useRouter()
+
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const getUserData = async () => {
-      const response = await fetch("/api/user");
-      const data = await response.json();
-      setUser(data.userAccount);
-    };
-    getUserData();
-  }, []);
+  if(!userToken){
+    router.push("/")
+  }else{
+    useEffect(() => {
+      const getUserData = async () => {
+        const response = await fetch("/api/user");
+        const data = await response.json();
+        setUser(data.userAccount);
+      };
+      getUserData();
+    }, []);
+  }
+
+
+
+ 
 
   const sideBarValues = [
     { id: 1, title: "پروفایل", href: "/my-account" },

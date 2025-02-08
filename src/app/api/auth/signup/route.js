@@ -30,8 +30,7 @@ export async function POST(req) {
         const response = NextResponse.json({ message: 'User Created successful', token });
         response.headers.append("Set-Cookie", serialize("token", token, {
             httpOnly: true,
-            maxAge: 60 * 60 * 24 * 7,
-            sameSite: 'strict',
+            maxAge: 60 * 60 * 24 * 30,
             path: "/"
         }))
 

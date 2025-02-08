@@ -13,7 +13,7 @@ const generateToken = (data) => {
 
     const token = sign({ ...data }, process.env.privatekey, {
         algorithm: "HS256",
-        expiresIn: "24h",
+        expiresIn: "30d",
     })
     return token
 }
