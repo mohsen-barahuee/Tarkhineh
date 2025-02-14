@@ -6,14 +6,30 @@ const shcema = mongoose.Schema({
         type: String,
         required: true
     },
+
+    branchOwner: {
+        type: Object,
+        required: true
+    }
+    ,
     address: {
-        type: String,
+        type: Object,
         required: true
     },
+
     workTime: {
         type: String,
         required: true
     },
+    propertyInfo: {
+        type: Object,
+        required: true
+    }
+    ,
+    propertyOptions: {
+        type: Object,
+    }
+    ,
     image: {
         type: String,
         required: true
