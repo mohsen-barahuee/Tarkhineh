@@ -7,7 +7,6 @@ export default function About() {
         <img
           src="./images/aboutus/header.png"
           className="w-full h-44 md:h-auto"
-          alt=""
         />
         <h2
           className="text-H6 md:text-H2 font-Bold text-white
@@ -53,7 +52,7 @@ export default function About() {
               رستوران‌های زنجیره‌ای ترخینه در سال ۱۳۶۸ افتتاح گردیده‌اند و در طی
               این سال‌ها همواره با ارائه غذاهای باکیفیت و سرویس سریع و به موقع
               در تلاش برای جلب رضایت مشتریان خود بوده‌اند. در طی این سال‌ها
-              اولویت جلب رضایت مشتریان بوده است.{" "}
+              اولویت جلب رضایت مشتریان بوده است
             </p>
           </div>
         </div>
@@ -113,7 +112,7 @@ export default function About() {
               </svg>
 
               <p className="text-neutral-500 text-center  text-Caption-SM  md:text-Body-LG font-Regular">
-                کیفیت بالای غذاها{" "}
+                کیفیت بالای غذاها
               </p>
             </div>
             <div className="flex flex-col gap-y-4 items-center md:py-5 md:border-l border-neutral-400 md:px-20 ">

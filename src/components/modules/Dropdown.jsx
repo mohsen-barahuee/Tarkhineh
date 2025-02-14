@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Dropdown({ title, items, imgSrc }) {
   const router = useRouter();
@@ -34,19 +35,19 @@ export default function Dropdown({ title, items, imgSrc }) {
       )}
       {imgSrc && <img className="w-4 h-4 md:w-6 md:h-6 " src={imgSrc} />}
 
-      <ul className="  absolute top-10 w-36 child:text-Body-SM text-neutral-800  child:pr-2 child:py-2.5 child:border-b child:border-b-neutral-200   shadow-DropShadow-12 bg-white">
+      <ul className="hidden md:block  absolute top-10 w-36 child:text-Body-SM text-neutral-800  child:pr-2 child:py-2.5 child:border-b child:border-b-neutral-200   shadow-DropShadow-12 bg-white">
         {items.map((item, index) => {
           return (
             <li
               className={
-                item == "خروج از حساب"
+                item.title === "خروج از حساب"
                   ? " hover:text-Error"
                   : "hover:text-Primary"
               }
-              onClick={item == "خروج از حساب" ? logOutHandler : () => {}}
+              onClick={item.title === "خروج از حساب" ? logOutHandler : () => {}}
               key={index}
             >
-              {item}
+              <Link href={item.href}>{item.title}</Link>
             </li>
           );
         })}

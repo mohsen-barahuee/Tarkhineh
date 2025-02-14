@@ -56,22 +56,34 @@ export default function Navbar({ token }) {
               <li>
                 <Dropdown
                   title={"شعبه"}
-                  items={["اکباتان", "چالوس ", "اقدسیه ", "ونک"]}
+                  items={[
+                    { href: "/my-account", title: "اکباتان" },
+                    { href: "/my-account/my-orders", title: "چالوس " },
+                    { href: "/my-account/favorite", title: "اقدسیه" },
+                    { href: "/my-account/myaddress", title: "ونک " },
+                  ]}
                 />
               </li>
               <li>
                 <Dropdown
                   title={"منو"}
-                  items={["غذای اصلی", "پیش غذا", "دسر", "نوشیدنی"]}
+                  items={[
+                    { href: "/my-account", title: "غذای اصلی" },
+                    { href: "/my-account/my-orders", title: "پیش غذا" },
+                    { href: "/my-account/favorite", title: "دسر" },
+                    { href: "/my-account/myaddress", title: "نوشیدنی " },
+                  ]}
                 />
               </li>
               <li className=" hover:text-Primary">
-                <Link href={"/"}>اعطای نمایندگی</Link>
+                <Link href={"/add-branch"}>اعطای نمایندگی</Link>
               </li>
               <li className=" hover:text-Primary">
                 <Link href={"/aboutus"}>درباره ما</Link>
               </li>
-              <li className=" hover:text-Primary">تماس با ما</li>
+              <li className=" hover:text-Primary">
+                <Link href={"/contactus"}>تماس با ما</Link>
+              </li>
             </ul>
           </div>
           <div
@@ -82,11 +94,11 @@ export default function Navbar({ token }) {
                 <Dropdown
                   imgSrc={"/svg/user.svg"}
                   items={[
-                    "پروفایل",
-                    "پیگیری سفارش",
-                    "علاقه‌مندی‌ها",
-                    "آدرس‌های من",
-                    "خروج از حساب",
+                    { href: "/my-account", title: "پروفایل" },
+                    { href: "/my-account/my-orders", title: "پیگیری سفارش" },
+                    { href: "/my-account/favorite", title: "علاقه‌مندی‌ها" },
+                    { href: "/my-account/myaddress", title: "آدرس‌های من" },
+                    { href: "", title: "خروج از حساب" },
                   ]}
                 />
               </div>

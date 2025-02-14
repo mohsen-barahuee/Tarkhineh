@@ -3,7 +3,9 @@ import ResturantMenu from '@/components/templates/ResturantMenu'
 import AboutSection from '@/components/templates/AboutSection'
 import TarkhineTour from '@/components/templates/TarkhoneTour'
 
-export default function Home() {
+export default async function Home() {
+
+
 
 
   return (

@@ -3,28 +3,19 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-export default function AccountSidebar({ userToken }) {
+export default function AccountSidebar() {
+  useEffect(() => {
+    const getUserData = async () => {
+      const response = await fetch("/api/user");
+      const data = await response.json();
+      setUser(data.userAccount);
+    };
+    getUserData();
+  }, []);
 
-  const router = useRouter()
+  const router = useRouter();
 
-  const [user, setUser] = useState(null);
-
-  if(!userToken){
-    router.push("/")
-  }else{
-    useEffect(() => {
-      const getUserData = async () => {
-        const response = await fetch("/api/user");
-        const data = await response.json();
-        setUser(data.userAccount);
-      };
-      getUserData();
-    }, []);
-  }
-
-
-
- 
+  const [user, setUser] = useState();
 
   const sideBarValues = [
     { id: 1, title: "پروفایل", href: "/my-account" },
@@ -49,10 +40,7 @@ export default function AccountSidebar({ userToken }) {
       <div className="w-72 border border-neutral-300 px-2 py-4  gap-y-4 rounded-lg">
         <div>
           <div className="flex items-center gap-x-[25px] ">
-            <img
-              src=""
-              className="bg-neutral-300 w-[88px] h-[88px] rounded-full "
-            />
+            <img className="bg-neutral-300 w-[88px] h-[88px] rounded-full " />
             <div>
               <h2 className="text-Body-MD font-Regular text-neutral-800">
                 کاربر ترخینه

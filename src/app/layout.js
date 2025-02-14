@@ -1,13 +1,27 @@
+'use client'
 import "./globals.css"
-import { cookies } from "next/headers";
 import Navbar from "@/components/modules/Navbar";
 import Footer from "@/components/modules/Footer";
+import { useState, useEffect } from "react";
 
 
-export default async function RootLayout({ children }) {
+export default  function RootLayout({ children }) {
 
-  const cookie = cookies();
-  const token = await cookie.has("token");
+  const [token, setToken] = useState(false)
+
+  useEffect(() => {
+    const getUserData = async () => {
+      const response = await fetch("/api/user");
+      const data = await response.json();
+      if (data) {
+        setToken(true)
+      } else {
+        setToken(false)
+      }
+
+    };
+    getUserData();
+  }, []);
 
 
   return (
