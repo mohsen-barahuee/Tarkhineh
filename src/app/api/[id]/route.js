@@ -12,6 +12,6 @@ export async function PUT(request, { params }) {
     const updateUser = await UserModel.findOneAndUpdate({ _id: id }, { username, phoneNumber, firstName, lastName, email, birthDay, })
 
 
-    return Response.json({ updateUser } ,{status : 201})
+    return Response.json({ updateUser }, { status: 201 })
 
 }
