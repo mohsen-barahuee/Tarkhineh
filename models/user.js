@@ -6,7 +6,7 @@ const schema = mongoose.Schema({
 
     phoneNumber: {
         type: Number,
-        require: true
+        required: true
     },
     username: {
         type: String
