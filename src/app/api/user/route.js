@@ -8,7 +8,10 @@ import { verifyToken } from "../../../../utils/auth"
 export async function GET(request) {
     connectToDB()
     const cookie = cookies();
+
     const getToken = await cookie.catch()
+
+
     if (!getToken._parsed.get('token').value) {
         return NextResponse.json({ messsage: "Token Is Empty" })
     }

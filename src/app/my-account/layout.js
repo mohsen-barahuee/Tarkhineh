@@ -29,9 +29,9 @@ export default function AccountLayout({ children }) {
 
     useEffect(() => {
         if (!isLoading) {
-            console.log(userChecker)
+            console.log("Use checker =>",userChecker)
             if(!userChecker){
-                router.push('/')
+                router.replace('/')
             }
             
         }
