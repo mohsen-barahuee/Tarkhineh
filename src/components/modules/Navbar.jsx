@@ -68,10 +68,10 @@ export default function Navbar({ token }) {
                 <Dropdown
                   title={"منو"}
                   items={[
-                    { href: "/my-account", title: "غذای اصلی" },
-                    { href: "/my-account/my-orders", title: "پیش غذا" },
-                    { href: "/my-account/favorite", title: "دسر" },
-                    { href: "/my-account/myaddress", title: "نوشیدنی " },
+                    { href: "/menu", title: "غذای اصلی" },
+                    { href: "/menu", title: "پیش غذا" },
+                    { href: "/menu", title: "دسر" },
+                    { href: "/menu", title: "نوشیدنی " },
                   ]}
                 />
               </li>

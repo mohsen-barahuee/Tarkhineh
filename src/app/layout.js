@@ -5,7 +5,7 @@ import Footer from "@/components/modules/Footer";
 import { useState, useEffect } from "react";
 
 
-export default  function RootLayout({ children }) {
+export default function RootLayout({ children }) {
 
   const [token, setToken] = useState(false)
 
@@ -27,10 +27,10 @@ export default  function RootLayout({ children }) {
   return (
     <html lang="en" dir="rtl">
       <body>
+          <Navbar token={token} />
+          {children}
+          <Footer />
 
-        <Navbar token={token} />
-        {children}
-        <Footer />
 
       </body>
     </html>

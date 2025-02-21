@@ -45,6 +45,6 @@ export async function GET(req) {
         .populate("label")
         .lean()
 
-    return Response.json({ message: allFoodes })
+    return Response.json(allFoodes)
 
 }
