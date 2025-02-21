@@ -29,17 +29,17 @@ export default function AccountLayout({ children }) {
 
     useEffect(() => {
         if (!isLoading) {
-            console.log("Use checker =>",userChecker)
-            if(!userChecker){
+            console.log("Use checker =>", userChecker)
+            if (!userChecker) {
                 router.replace('/')
             }
-            
+
         }
 
     }, [userChecker, isLoading]);
 
     return (
-        <div className="md:flex md:justify-center md:gap-x-6 md:py-12">
+        <div className="md:flex md:justify-center md:gap-x-6 md:px-26.5 md:py-12">
             <AccountSidebar />
             <hr />
             {children}
