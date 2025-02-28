@@ -3,6 +3,7 @@ import "./globals.css"
 import Navbar from "@/components/modules/Navbar";
 import Footer from "@/components/modules/Footer";
 import { useState, useEffect } from "react";
+import { AppWrapper } from "@/context"
 
 
 export default function RootLayout({ children }) {
@@ -27,10 +28,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" dir="rtl">
       <body>
+        <AppWrapper>
           <Navbar token={token} />
           {children}
           <Footer />
-
+        </AppWrapper>
 
       </body>
     </html>

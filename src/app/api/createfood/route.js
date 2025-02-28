@@ -6,7 +6,7 @@ import foodModel from "../../../../models/food";
 
 export async function POST(req) {
 
-    connectToDB()
+    await connectToDB()
 
     const formData = await req.formData()
     const title = formData.get("title")
@@ -39,7 +39,7 @@ export async function POST(req) {
 
 
 export async function GET(req) {
-    connectToDB()
+    await connectToDB()
 
     const allFoodes = await foodModel.find()
         .populate("label")

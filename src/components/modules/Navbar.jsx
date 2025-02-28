@@ -5,11 +5,19 @@ import Dropdown from "./Dropdown";
 import Link from "next/link";
 import Login from "./Login";
 import Search from "./Search";
+import { useAppContext } from "@/context";
 
 export default function Navbar({ token }) {
   const [slider, setSlider] = useState(false);
   const [serachModal, setSearchModal] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
+
+  const { basket, setBasket } = useAppContext();
+
+
+  
+
+
 
   const showLoginModal = () => {
     setLoginModal(true);
