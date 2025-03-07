@@ -14,11 +14,6 @@ export default function Navbar({ token }) {
 
   const { basket, setBasket } = useAppContext();
 
-
-  
-
-
-
   const showLoginModal = () => {
     setLoginModal(true);
   };
@@ -34,6 +29,9 @@ export default function Navbar({ token }) {
   const sliderCloseHanlder = () => {
     setSlider(false);
   };
+
+  let name = 24124;
+
   return (
     <>
       {loginModal && <Login onCloseModal={closeLoginModal} />}
@@ -115,11 +113,16 @@ export default function Navbar({ token }) {
                 <h3 className="text-Button-SM font-Medium">ورود | ثبت نام</h3>
               </div>
             )}
-            <div>
-              <img
-                className="w-4 h-4 md:w-6 md:h-6"
-                src={"/svg/shopping-cart.svg"}
-              />
+            <div className="w-auto relative">
+              <Link href={"/basket"}>
+                <span className=" absolute text-sm -top-2 -right-2 px-2 shadow-DropShadow-6  rounded-full bg-white text-Primary">
+                  {basket.length}
+                </span>
+                <img
+                  className="w-4 h-4 md:w-6 md:h-6"
+                  src={"/svg/shopping-cart.svg"}
+                />
+              </Link>
             </div>
             <div
               onClick={() => setSearchModal(true)}

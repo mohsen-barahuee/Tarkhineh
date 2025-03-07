@@ -27,7 +27,8 @@ export default function MenuPage() {
         getData()
     }, [])
 
-
+    console.log(basket)
+    
 
 
     return (
