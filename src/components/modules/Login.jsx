@@ -28,18 +28,16 @@ export default function Login({ onCloseModal }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({phoneNumber:Number(phoneNumber)  }),
+      body: JSON.stringify({ phoneNumber: Number(phoneNumber) }),
     });
 
-    if(response.status === 200){
-      alert("Login Successfull")
-      router.replace("/")
-      window.location.reload()
-    }else  {
-
+    if (response.status === 200) {
+      alert("Login Successfull");
+      router.replace("/");
+      window.location.reload();
+    } else {
       setSendCode(true);
     }
-
   };
 
   useEffect(() => {

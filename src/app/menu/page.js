@@ -27,8 +27,6 @@ export default function MenuPage() {
         getData()
     }, [])
 
-    console.log(basket)
-    
 
 
     return (
@@ -66,7 +64,7 @@ export default function MenuPage() {
                                         {food.deatails}
                                     </span>
                                     <span className='text-Caption-SM md:text-Body-LG font-Regular text-nowrap'>
-                                        {food.price} تومان
+                                        {food.price.toLocaleString("fa-IR")} تومان
                                     </span>
                                 </div>
 

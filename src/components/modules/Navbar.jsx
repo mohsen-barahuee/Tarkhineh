@@ -36,7 +36,7 @@ export default function Navbar({ token }) {
     <>
       {loginModal && <Login onCloseModal={closeLoginModal} />}
       {serachModal && <Search setModal={setSearchModal} />}
-      <div className={`container    px-6 py-4 lg:px-26.5 md:py-8`}>
+      <div className="container  px-6 py-4 lg:px-26.5 md:py-8 border-b-2 ">
         <div className="flex items-center justify-between md:justify-center md:gap-x-4 lg:gap-x-0 lg:justify-between">
           <div
             onClick={sliderShowHandler}
