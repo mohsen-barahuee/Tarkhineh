@@ -1,16 +1,19 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { useAppContext } from "@/context";
+import Link from "next/link";
 
-export default function BasketValues() {
+export default function BasketValues({ isUserLogin }) {
   const { basket, setBasket } = useAppContext();
+
+  
 
   let totalPrice = basket.reduce((total, item) => {
     return total + item.price;
   }, 0);
 
   return (
-    <div className="border border-neutral-400 rounded-lg p-6 w-[500px] text-Body-SM font-Regular">
+    <div className="border md:max-h-[200px] border-neutral-400 rounded-lg p-6 w-[500px] text-Body-SM font-Regular">
       <div className="flex justify-between py-3">
         <h1>سبد خردید ({basket.length})</h1>
         <div className=" cursor-pointer" onClick={() => setBasket([])}>
@@ -45,12 +48,20 @@ export default function BasketValues() {
         </div>
       </div>
       <hr />
-      <div className="flex justify-between py-3">
+      <div className="flex justify-between py-2">
         <span>مبلغ قابل پرداخت</span>
         <span className="text-Primary ">
           {" "}
           {totalPrice.toLocaleString("fa-IR")} تومان
         </span>
+      </div>
+      <hr />
+      <div className="py-3 w-full child:bg-Primary child:text-center child:py-2  child:text-white child:block child:rounded-lg">
+        {isUserLogin ? (
+          <Link href={"/basket/place-order"}>ثبت سفارش</Link>
+        ) : (
+          <Link href={"/"}>ورود | ثبت نام</Link>
+        )}
       </div>
     </div>
   );

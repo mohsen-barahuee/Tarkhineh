@@ -12,14 +12,14 @@ export async function GET(request) {
     const getToken = await cookie.catch()
 
 
-    if (!getToken._parsed.get('token').value) {
-        return NextResponse.json({ messsage: "Token Is Empty" })
+    if (!getToken._parsed) {
+        return NextResponse.json({ messsage: "Token Is Empty" }, { status: 400 })
     }
-    else {
+    
         const tokenPayload = verifyToken(getToken._parsed.get('token').value)
         const userAccount = await UserModel.findOne({ phoneNumber: tokenPayload.phoneNumber })
 
         return Response.json({ userAccount });
-    }
+    
 
 }

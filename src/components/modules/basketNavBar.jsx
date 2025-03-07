@@ -13,7 +13,7 @@ export default function BasketNavBar({ status }) {
         </div>
       );
 
-    case "/basket/completeinfo":
+    case "/basket/place-order":
       return (
         <div className="flex justify-evenly py-10  ">
           <h6 className="text-Body-SM font-Regular text-neutral-400">
