@@ -55,7 +55,7 @@ export default function Navbar({ token }) {
             </Link>
           </div>
           <div className="hidden md:inline-block">
-            <ul className="flex items-center md:gap-x-3 lg:gap-x-6 h-full transition-all child-hover:border-b-Primary    child:text-neutral-600 md:child:text-Body-MD lg:child:text-Body-XL child:font-Regular child:cursor-pointer">
+            <ul className="flex items-center md:gap-x-3 lg:gap-x-6 h-full transition-all child-hover:border-b-Primary child:text-neutral-600 md:child:text-Body-MD lg:child:text-Body-XL child:font-Regular child:cursor-pointer">
               <li className=" hover:text-Primary">
                 <Link href={"/"}>صفحه اصلی</Link>
               </li>

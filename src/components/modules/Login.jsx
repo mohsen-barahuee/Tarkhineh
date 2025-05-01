@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 export default function Login({ onCloseModal }) {
   const router = useRouter();
@@ -32,7 +33,11 @@ export default function Login({ onCloseModal }) {
     });
 
     if (response.status === 200) {
-      alert("Login Successfull");
+      Swal.fire({
+        title: "Login Successfull",
+        icon: "success",
+        showCloseButton: true,
+      });
       router.replace("/");
       window.location.reload();
     } else {
